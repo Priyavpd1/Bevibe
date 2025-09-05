@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, use, useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { Dimensions, View, Text, TextInput, TouchableOpacity } from "react-native";
 import { supabase } from "../lib/supabase";
 import { LinearGradient } from "expo-linear-gradient";
 import styles from "./styles";
@@ -138,6 +138,8 @@ export default function AuthScreen()
     colors={["#FCE4EC", "#FDEEE4", "#FCE4EC"]}
     style={{flex: 1, justifyContent: "center", alignItems: "center"}}
     >
+    <Text style={{position: "absolute", fontSize: 30, top: 100, left: 50}}>✨</Text>
+    <Text style={{position: "absolute", fontSize: 50, top: 150, left: 300}}>✨</Text>
     <Text style={{ fontSize: 28, fontWeight: "bold", color: "#fff" }}>Mavibe</Text>
     <View>
       {
@@ -189,6 +191,8 @@ export default function AuthScreen()
         </Text>
       </TouchableOpacity>
     </View>
+    <Text style={{position: "absolute", fontSize: 50, top: 600, left: 50}}>✨</Text>
+    <Text style={{position: "absolute", fontSize: 30, top: 700, left: 300}}>✨</Text>
     </LinearGradient>
   );
 }
