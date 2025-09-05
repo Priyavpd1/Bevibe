@@ -135,7 +135,7 @@ export default function AuthScreen()
 
   return (
     <LinearGradient
-    colors={["#4B7BE5", "#6EC1E4"]}
+    colors={["#FCE4EC", "#FDEEE4", "#FCE4EC"]}
     style={{flex: 1, justifyContent: "center", alignItems: "center"}}
     >
     <Text style={{ fontSize: 28, fontWeight: "bold", color: "#fff" }}>Mavibe</Text>
