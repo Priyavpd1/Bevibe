@@ -140,7 +140,9 @@ export default function AuthScreen()
     >
     <Text style={{position: "absolute", fontSize: 30, top: 100, left: 50}}>✨</Text>
     <Text style={{position: "absolute", fontSize: 50, top: 150, left: 300}}>✨</Text>
-    <Text style={{ fontSize: 28, fontWeight: "bold", color: "#fff" }}>Mavibe</Text>
+    <Text style={styles.appName}>
+      Mavibe
+    </Text>
     <View>
       {
         isSignup ? (
@@ -175,13 +177,13 @@ export default function AuthScreen()
       }
       <TouchableOpacity
         style={[styles.defaultFormButton,{
-          backgroundColor: isSignup ? "#4B7BE5" : "#eee",
+          backgroundColor: isSignup ? "#F8BBD0" : "#F8BBD0",
         }]}
         onPress={() => setIsSignup(!isSignup)}
       >
         <Text
           style={{
-            color: isSignup ? "#fff" : "#333",
+            color: isSignup ? "#fff" : "#fff",
             fontSize: 16,
             textAlign: "center",
             fontWeight: 600

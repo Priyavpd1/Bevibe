@@ -30,7 +30,7 @@ export default StyleSheet.create({
     },
     defaultFormButton: {
         ...loginBaseButton,
-        backgroundColor: "#4B7BE5",
+        backgroundColor: "#FF4081",
     },
     //Styles For HomePage
     headerContainer: {
@@ -68,7 +68,7 @@ export default StyleSheet.create({
     appName: {
         fontSize: 24,
         fontWeight: 600,
-        color: "#1F2937",
+        color: "#FF4081",
         letterSpacing: 0.5,
     },
     helpButton: {
