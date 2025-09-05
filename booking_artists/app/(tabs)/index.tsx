@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, use, useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { supabase } from "../lib/supabase";
 import { LinearGradient } from "expo-linear-gradient";
+import styles from "./styles";
 
 interface LoginFormProps
 {
@@ -43,59 +44,32 @@ function SignupForm({name, setName, email, setEmail, password, setPassword,
       placeholder="Name"
       value={name}
       onChangeText={setName} 
-      style={{ borderWidth: 1,
-              borderColor: '#ccc',
-              borderRadius: 8,
-              width: 300, 
-              height: 50,
-              marginVertical: 8,
-              backgroundColor: '#fff', 
-              paddingHorizontal: 15 }}
+      style={styles.loginTextInput}
       />
       <TextInput
       placeholder="Email"
       value={email}
       onChangeText={setEmail}
-      style={{ borderWidth: 1,
-              borderColor: '#ccc',
-              borderRadius: 8,
-              width: 300, 
-              height: 50,
-              marginVertical: 8,
-              backgroundColor: '#fff', 
-              paddingHorizontal: 15 }}
+      style={styles.loginTextInput}
       />
       <TextInput
       placeholder="Password"
       value={password}
       onChangeText={setPassword}
-      style={{ borderWidth: 1,
-              borderColor: '#ccc',
-              borderRadius: 8,
-              width: 300, 
-              height: 50,
-              marginVertical: 8,
-              backgroundColor: '#fff', 
-              paddingHorizontal: 15 }}
+      style={styles.loginTextInput}
       secureTextEntry
       />
       <TouchableOpacity
-        style={{
-          backgroundColor: "#4a90e2",
-          paddingVertical: 15,
-          borderRadius: 10,
-          marginVertical: 15,
-          alignItems: "center",
-          shadowColor: "#000",
-          shadowOffset: { width: 0, height: 4 },
-          shadowOpacity: 0.2,
-          shadowRadius: 5,
-          elevation: 5,
-        }}
+        style={styles.defaultFormButton}
         onPress={signUpWithEmail}
         disabled={loading}
       >
-        <Text style={{ color: "#fff", fontSize: 18, textAlign: "center", fontWeight: "600" }}>{loading ? "Loading..." : "Create a New Account"}</Text>
+        <Text style={{ color: "#fff",
+                        fontSize: 18, 
+                        textAlign: "center", 
+                        fontWeight: "600" }}>
+              {loading ? "Loading..." : "Create a New Account"}
+        </Text>
       </TouchableOpacity>
       {message ? <Text>{message}</Text> : null}
       {error ? <Text style={{color: 'red'}}>{error}</Text> : null}
@@ -123,45 +97,25 @@ function LoginForm({ email, setEmail, password, setPassword,
       placeholder="Email" 
       value={email} 
       onChangeText={setEmail} 
-      style={{ borderWidth: 1,
-              borderColor: '#ccc',
-              borderRadius: 10,
-              width: 300,
-              height: 50,
-              marginVertical: 8,
-              backgroundColor: '#fff', 
-              paddingHorizontal: 15 }}
+      style={styles.loginTextInput}
       />
       <TextInput
       placeholder="Password"
       value={password}
       onChangeText={setPassword}
-      style={{ borderWidth: 1,
-              borderColor: '#ddd',
-              borderRadius: 10,
-              width: 300,
-              height: 50,
-              marginVertical: 8,
-              backgroundColor: '#f9f9f9', 
-              paddingHorizontal: 15 }}
+      style={styles.loginTextInput}
       secureTextEntry/>
       <TouchableOpacity
-        style={{
-          backgroundColor: "#4B7BE5",
-          paddingVertical: 15,
-          borderRadius: 10,
-          marginVertical: 15,
-          alignItems: "center",
-          shadowColor: "#000",
-          shadowOffset: { width: 0, height: 4 },
-          shadowOpacity: 0.2,
-          shadowRadius: 5,
-          elevation: 5,
-        }}
+        style={styles.defaultFormButton}
         onPress={signInWithEmail}
         disabled={loading}
       >
-        <Text style={{ color: "#fff", fontSize: 18, textAlign: "center", fontWeight: "600" }}>{loading ? "Loading..." : "Login"}</Text>
+        <Text style={{ color: "#fff", 
+                        fontSize: 18, 
+                        textAlign: "center", 
+                        fontWeight: "600" }}>
+              {loading ? "Loading..." : "Login"}
+        </Text>
       </TouchableOpacity>
       {message ? <Text>{message}</Text> : null}
       {error ? <Text style={{color: 'red'}}>{error}</Text> : null}
@@ -185,22 +139,7 @@ export default function AuthScreen()
     style={{flex: 1, justifyContent: "center", alignItems: "center"}}
     >
     <Text style={{ fontSize: 28, fontWeight: "bold", color: "#fff" }}>Mavibe</Text>
-    <View style={{ flex: 0.6,
-                  width: "100%",
-                  // backgroundColor: "#f2f2f2",
-                  borderTopLeftRadius: 30,
-                  borderTopRightRadius: 30,
-                  borderBottomLeftRadius: 30,
-                  borderBottomRightRadius: 30,
-                  shadowColor: '#000',
-                  shadowOpacity: 0.1,
-                  shadowOffset: {width: 0, height: -3},
-                  shadowRadius: 6,
-                  elevation: 6,
-                  padding: 20,
-                  margin : 5,
-                  justifyContent: "center",
-                  alignItems: "center"}}>
+    <View>
       {
         isSignup ? (
           <SignupForm
@@ -232,15 +171,10 @@ export default function AuthScreen()
           />
         )
       }
-            {/* Toggle button */}
       <TouchableOpacity
-        style={{
+        style={[styles.defaultFormButton,{
           backgroundColor: isSignup ? "#4B7BE5" : "#eee",
-          paddingVertical: 15,
-          borderRadius: 10,
-          marginVertical: 10,
-          width: "80%"
-        }}
+        }]}
         onPress={() => setIsSignup(!isSignup)}
       >
         <Text
